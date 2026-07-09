@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# ... (existing Python rules will be here) ...
+
+# --- Custom EDA (xschem/ngspice) Ignore Rules ---
+# Added by me for my DAC internship project
+*.raw
+*.log
+*.out
+*~
+*.bak
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
