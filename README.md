@@ -10,7 +10,6 @@ The development environment is configured using GitHub Codespaces to perform AI-
 
 | Prompt | Outcome |
 |--------|---------|
-
 | Should I use a cloud-based Ubuntu environment or a local setup? | Selected GitHub Codespaces. |
 
 ## EDA Toolchain
