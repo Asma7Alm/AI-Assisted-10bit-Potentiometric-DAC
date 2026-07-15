@@ -108,7 +108,7 @@ The TG2 cell contains two CMOS inverter stages:
 - Inverter 2 (M8–M2): Buffers/distributes the control signal to drive the transmission gate transistors.
 
 **The signal flow is:**
-`din
+din
    │
    ▼
 M5 + M1  →  dinb
@@ -117,7 +117,7 @@ M5 + M1  →  dinb
 M8 + M2  →  buffered/complementary control
    │
    ▼
-Transmission Gate (M3, M4, M6, M7)`
+Transmission Gate (M3, M4, M6, M7)
 
 **Operation of TG (M6–M4)**
 
