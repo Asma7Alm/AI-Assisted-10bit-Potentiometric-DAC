@@ -57,3 +57,21 @@ TG2.sch opened correctly.
 <img width="1160" height="737" alt="Screenshot 2026-07-15 213904" src="https://github.com/user-attachments/assets/8dba2a12-6a76-4992-993e-cf1592c4f7b9" />
 
 <img width="876" height="587" alt="image" src="https://github.com/user-attachments/assets/9348e614-61e5-4bb8-8229-be34b743f640" />
+
+## TG2 – Transmission Gate
+
+**Objective**
+
+Study the SKY130 transmission gate used as the switching element in the DAC.
+
+**Observations**
+TG2 = Transmission Gate (2-input switch).
+
+A transmission gate is an electronic switch that can pass both logic 0 and logic 1 with very low resistance.
+
+It consists of:
+
+- 1 PMOS
+- 1 NMOS
+- Both connected in parallel
+- Controlled by complementary signals (`din` and `dinb`)
