@@ -134,6 +134,7 @@ Transmission Gates:
 **Working Principle**
 - `din = 1`, `dinb = 0` → M6 and M4 turn ON → inp1 is connected to vout.
 - `din = 0`, `dinb = 1` → M6 and M4 turn OFF → inp1 is disconnected from vout.
+
 **Key Learning**
 
 A transmission gate uses both an NMOS and a PMOS so that it can pass both LOW and HIGH logic levels (and analog voltages) with low resistance.
