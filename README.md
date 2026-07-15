@@ -75,3 +75,66 @@ It consists of:
 - 1 NMOS
 - Both connected in parallel
 - Controlled by complementary signals (`din` and `dinb`)
+
+**TG2 Architecture**
+Total MOSFETs: 8
+Control logic: 4 MOSFETs
+Transmission gate: 4 MOSFETs
+
+**Purpose**
+
+The control logic generates complementary control signals (din and dinb).
+The transmission gate uses these signals to switch the analog input to the output with low resistance.
+
+PMOS (M5)
+Source → vdd
+Gate → din
+Drain → dinb
+Bulk → vdd
+
+Function: M5 works with M1 to form a CMOS inverter that generates the complementary control signal
+
+**CMOS Inverter (M5–M1)**
+M5 (PMOS) and M1 (NMOS) form a CMOS inverter.
+Both gates are driven by din.
+Their drains are connected together to produce dinb.
+The inverter generates the complementary control signal required by the transmission gate.
+
+**Control Logic**
+
+The TG2 cell contains two CMOS inverter stages:
+
+- Inverter 1 (M5–M1): Generates the complementary signal dinb from din.
+- Inverter 2 (M8–M2): Buffers/distributes the control signal to drive the transmission gate transistors.
+
+**The signal flow is:**
+`din
+   │
+   ▼
+M5 + M1  →  dinb
+   │
+   ▼
+M8 + M2  →  buffered/complementary control
+   │
+   ▼
+Transmission Gate (M3, M4, M6, M7)`
+
+**Operation of TG (M6–M4)**
+
+- When din = 1 and dinb = 0, both M6 (PMOS) and M4 (NMOS) turn ON.
+- The transmission gate connects inp1 to vout.
+- The analog signal is transferred with low resistance and minimal voltage drop.
+
+**Circuit Structure**
+- Total MOSFETs: 8
+- Control Logic: M1, M2, M5, M8
+Transmission Gates:
+- M6 + M4 → connect inp1 to vout
+- M7 + M3 → connect inp2 to vout
+**Working Principle**
+- `din = 1`, `dinb = 0` → M6 and M4 turn ON → inp1 is connected to vout.
+- `din = 0`, `dinb = 1` → M6 and M4 turn OFF → inp1 is disconnected from vout.
+**Key Learning**
+
+A transmission gate uses both an NMOS and a PMOS so that it can pass both LOW and HIGH logic levels (and analog voltages) with low resistance.
+
