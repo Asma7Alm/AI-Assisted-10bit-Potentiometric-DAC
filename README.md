@@ -327,3 +327,12 @@ Instead of designing a new circuit from scratch, the designer reused the existin
 - `d0`, `d1`, and `d2` change at different time periods.
 - `d2` performs the final selection between the two 2-bit DAC outputs.
 - The output changes according to the digital input combinations.
+
+
+## 10 bit DAC
+
+<img width="1386" height="830" alt="image" src="https://github.com/user-attachments/assets/254cbbaa-ede3-4a3d-a47f-ed2a85e148af" />
+
+### Hierarchical Design
+
+The 10-bit DAC follows the same hierarchical architecture as the 3-bit DAC, where two lower-bit DACs are combined using one TG2 and a 250 Ω resistor. The same design pattern is repeated until the 10-bit DAC is formed.
