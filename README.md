@@ -224,3 +224,39 @@ Explain the architecture of the 2-bit potentiometric DAC. Help me trace all tran
 ### Observation
 
 The resistor string creates multiple voltage levels, while the transmission gate network selects one voltage based on the digital inputs (`d0`, `d1`) and sends it to the output.
+
+
+## Resistor String Analysis
+
+### Key Points
+
+- The resistor string consists of four resistors connected in series.
+- Resistor values are:
+  - R4 = 500 Ω
+  - R1 = 500 Ω
+  - R2 = 500 Ω
+  - R3 = 250 Ω
+- Total resistance of the string is **1750 Ω**.
+- The same current flows through all resistors because they are connected in series.
+- Voltage drop across each 500 Ω resistor is approximately **0.943 V**.
+- Voltage drop across the 250 Ω resistor is approximately **0.471 V**.
+
+### Voltage at Resistor Taps
+
+| Node | Voltage |
+|------|---------|
+| VREF (`inp1`) | 3.300 V |
+| `x1_inp1` | 2.357 V |
+| `x1_inp2` | 1.414 V |
+| `switch1_inp1` | 0.471 V |
+| GND (`inp2`) | 0 V |
+
+### AI Prompt
+
+```text
+Help me analyze the resistor string in the 2-bit potentiometric DAC. Calculate the total resistance, current through the resistor ladder, voltage drop across each resistor, and the voltage at every tap.
+```
+
+### Observation
+
+The resistor string generates multiple reference voltage levels. Since all resistors are connected in series, the same current flows through each resistor, producing different voltage taps that are later selected by the transmission gate network.
