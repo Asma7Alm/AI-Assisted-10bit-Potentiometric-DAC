@@ -260,3 +260,31 @@ Help me analyze the resistor string in the 2-bit potentiometric DAC. Calculate t
 ### Observation
 
 The resistor string generates multiple reference voltage levels. Since all resistors are connected in series, the same current flows through each resistor, producing different voltage taps that are later selected by the transmission gate network.
+
+
+## SPICE Simulation
+
+### Key Points
+
+- The 2-bit DAC was verified using an NGSPICE transient simulation.
+- Digital inputs `d0` and `d1` were applied as pulse signals.
+- The output (`out_v`) changed according to the input combinations.
+- Four distinct output voltage levels were observed.
+- The simulated output closely matched the resistor-string analysis.
+
+### Simulation Setup
+
+- VDD = 3.3 V
+- VREF (High) = 3.3 V
+- VREF (Low) = 0.1 V
+- Simulation: Transient (`.tran 1n 20u`)
+
+### AI Prompt
+
+```text
+Help me understand the NGSPICE simulation of my 2-bit DAC. Explain the input pulse signals, output waveform, and compare the simulated output with the resistor-string analysis.
+```
+
+### Conclusion
+
+The SPICE simulation confirms that the transmission gate network correctly selects different reference voltages based on the digital inputs, producing multiple analog output levels.
