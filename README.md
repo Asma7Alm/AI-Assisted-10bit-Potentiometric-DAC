@@ -264,6 +264,8 @@ The resistor string generates multiple reference voltage levels. Since all resis
 
 ## SPICE Simulation
 
+<img width="1657" height="890" alt="image" src="https://github.com/user-attachments/assets/3f6df73f-0563-4a1c-9c16-1de032ea5f7f" />
+
 ### Key Points
 
 - The 2-bit DAC was verified using an NGSPICE transient simulation.
