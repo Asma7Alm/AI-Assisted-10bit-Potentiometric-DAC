@@ -196,33 +196,31 @@ Using local symbol references instead of absolute paths makes the schematic port
 
 ## 2-bit DAC Architecture
 
-### Objective
-Understand how the 2-bit potentiometric DAC selects one voltage from the resistor string using transmission gates.
+<img width="1197" height="855" alt="image" src="https://github.com/user-attachments/assets/ee837572-7ff2-4bff-a015-da22997e011e" />
 
-### Work Done
-- Opened and analyzed `2bitdac.sch`.
-- Fixed the missing `TG2.sym` issue in Xschem.
-- Identified all resistor tap nodes.
-- Traced all three transmission gates and their connections.
-- Understood how `d0` and `d1` control the output selection.
+### Key Points
+
+- A 2-bit DAC produces **4 output voltage levels (2² = 4)**.
+- The resistor string generates different voltage taps.
+- Three transmission gates (TG2) are used to select one of these voltage levels.
+- `d0` controls the first stage of selection.
+- `d1` controls the final stage and connects the selected voltage to `out_v`.
+- This two-stage selection forms a **hierarchical switch network**, which is also used in higher-bit DACs.
 
 ### Switch Connections
 
-| Switch | Inputs | Control | Output |
-|--------|--------|---------|--------|
-| switch | `x1_inp1`, `x2_inp2` | `d0` | `x1_out` |
-| switch1 | `switch1_inp1`, `x2_inp2` | `d0` | `x2_out` |
-| switch2 | `x1_out`, `x2_out` | `d1` | `out_v` |
-
-### Working
-- `d0` controls the first two transmission gates.
-- `d1` controls the final transmission gate.
-- Together, they select one voltage from the resistor string and connect it to the output.
+| Switch | Control | Output |
+|--------|---------|--------|
+| switch | `d0` | `x1_out` |
+| switch1 | `d0` | `x2_out` |
+| switch2 | `d1` | `out_v` |
 
 ### AI Prompt
+
 ```text
-Help me trace all transmission gates in 2bitdac.sch and explain how d0 and d1 select the final output.
+Explain the architecture of the 2-bit potentiometric DAC. Help me trace all transmission gates and explain how d0 and d1 select the final output voltage.
 ```
 
 ### Observation
-The 2-bit DAC uses a two-stage transmission gate network. The first stage selects intermediate voltages, and the second stage selects the final output.
+
+The resistor string creates multiple voltage levels, while the transmission gate network selects one voltage based on the digital inputs (`d0`, `d1`) and sends it to the output.
