@@ -194,44 +194,35 @@ All three TG2 symbols loaded successfully, and the complete 2-bit DAC schematic 
 Using local symbol references instead of absolute paths makes the schematic portable across different systems and GitHub Codespaces.
 
 
-2-bit DAC Architecture
+## 2-bit DAC Architecture
 
-Objective
+### Objective
+Understand how the 2-bit potentiometric DAC selects one voltage from the resistor string using transmission gates.
 
-Understand the hierarchical architecture of the 2-bit potentiometric DAC and identify the function of each transmission gate.
+### Work Done
+- Opened and analyzed `2bitdac.sch`.
+- Fixed the missing `TG2.sym` issue in Xschem.
+- Identified all resistor tap nodes.
+- Traced all three transmission gates and their connections.
+- Understood how `d0` and `d1` control the output selection.
 
-Work Completed
+### Switch Connections
 
-Fixed missing TG2.sym issue in Xschem.
-Opened and analyzed 2bitdac.sch.
-Identified the resistor string and four voltage tap nodes.
-Traced all three transmission gate connections.
-Understood the hierarchical switch network used in the DAC.
-Circuit Blocks
-Block	Function
-Resistor String	Generates selectable reference voltage taps
-Switch	Selects between x1_inp1 and x2_inp2 using d0
-Switch1	Selects between switch1_inp1 and x2_inp2 using d0
-Switch2	Selects between x1_out and x2_out using d1 to generate the final output
-Signal Mapping
-Switch
-Signal	Connection
-inp1	x1_inp1
-din	d0
-inp2	x2_inp2
-vout	x1_out
-Switch1
-Signal	Connection
-inp1	switch1_inp1
-din	d0
-inp2	x2_inp2
-vout	x2_out
-Switch2
-Signal	Connection
-inp1	x1_out
-din	d1
-inp2	x2_out
-vout	out_v
-Working Principle
+| Switch | Inputs | Control | Output |
+|--------|--------|---------|--------|
+| switch | `x1_inp1`, `x2_inp2` | `d0` | `x1_out` |
+| switch1 | `switch1_inp1`, `x2_inp2` | `d0` | `x2_out` |
+| switch2 | `x1_out`, `x2_out` | `d1` | `out_v` |
 
-The first stage consists of two transmission gates controlled by d0. These switches select voltage taps from the resistor string. Their outputs are connected to a third transmission gate controlled by d1, which selects the final analog output (out_v). This creates a hierarchical switching network that can be extended to higher-bit DACs.
+### Working
+- `d0` controls the first two transmission gates.
+- `d1` controls the final transmission gate.
+- Together, they select one voltage from the resistor string and connect it to the output.
+
+### AI Prompt
+```text
+Help me trace all transmission gates in 2bitdac.sch and explain how d0 and d1 select the final output.
+```
+
+### Observation
+The 2-bit DAC uses a two-stage transmission gate network. The first stage selects intermediate voltages, and the second stage selects the final output.
