@@ -189,8 +189,7 @@ All three TG2 symbols loaded successfully, and the complete 2-bit DAC schematic 
 | Before | After |
 |--------|-------|
 | <img width="1191" height="811" alt="Screenshot 2026-07-18 121419" src="https://github.com/user-attachments/assets/75a89a75-29b3-4f8d-9a7c-58f580b5f01b" />
- | <img width="1197" height="855" alt="image" src="https://github.com/user-attachments/assets/31182642-3e6f-4153-b39d-d0ca92b62358" />
- |
+ | <img width="1197" height="855" alt="image" src="https://github.com/user-attachments/assets/31182642-3e6f-4153-b39d-d0ca92b62358" />|
 
 **Observation:**  
 Using local symbol references instead of absolute paths makes the schematic portable across different systems and GitHub Codespaces.
