@@ -336,3 +336,184 @@ Instead of designing a new circuit from scratch, the designer reused the existin
 ### Hierarchical Design
 
 The 10-bit DAC follows the same hierarchical architecture as the 3-bit DAC, where two lower-bit DACs are combined using one TG2 and a 250 Ω resistor. The same design pattern is repeated until the 10-bit DAC is formed.
+
+
+## Digital Input Control
+
+### Objective
+
+Understand how binary input signals control the switching network of the resistor-string DAC.
+
+### Circuit Understanding
+
+- The DAC receives a 10-bit digital input (D9–D0).
+- Each digital input controls the transmission gate network.
+- The transmission gates connect one of the resistor-string voltage taps to the output.
+- Different binary input combinations produce different analog output voltages.
+
+### Observation
+
+The digital inputs do not generate analog voltages directly. Instead, they control the transmission gates, which select one of the pre-generated voltage levels from the resistor string. This switching mechanism enables accurate digital-to-analog conversion.
+
+### AI Discussion
+
+Explain how binary digital inputs control the transmission gate network in a hierarchical resistor-string DAC and how this determines the analog output voltage.
+
+
+## Reference Voltage Behaviour
+
+### Objective
+
+Understand how the reference voltages define the analog output range of the resistor-string DAC.
+
+### Circuit Understanding
+
+- The resistor string is connected between VREFH (3.3 V) and VREFL (0 V).
+- The resistor ladder generates intermediate voltage levels between these two references.
+- The transmission gate network selects one of these voltage levels based on the digital input code.
+
+### Observation
+
+The DAC output is always limited by the applied reference voltages. Since the resistor ladder is connected between 3.3 V and 0 V, the output voltage can only vary within this range. The transmission gates do not generate voltage; they only select an existing resistor tap.
+
+### AI Discussion
+
+Explain how the reference voltages determine the operating range of a resistor-string DAC and why the transmission gates only select existing voltage levels.
+
+
+## Reference Voltage Behaviour
+
+### Objective
+
+Understand how the reference voltages define the analog output range of the resistor-string DAC.
+
+### Circuit Understanding
+
+- The resistor string is connected between VREFH (3.3 V) and VREFL (0 V).
+- The resistor ladder generates intermediate voltage levels between these two references.
+- The transmission gate network selects one of these voltage levels based on the digital input code.
+
+### Observation
+
+The DAC output is always limited by the applied reference voltages. Since the resistor ladder is connected between 3.3 V and 0 V, the output voltage can only vary within this range. The transmission gates do not generate voltage; they only select an existing resistor tap.
+
+### AI Discussion
+
+Explain how the reference voltages determine the operating range of a resistor-string DAC and why the transmission gates only select existing voltage levels.
+
+
+## Output Voltage Step
+
+### Objective
+
+Understand how changes in the digital input code affect the analog output voltage.
+
+### Circuit Understanding
+
+- Each digital input code selects a unique resistor tap through the transmission gate network.
+- Adjacent digital codes select adjacent voltage levels in the resistor string.
+- The output voltage therefore changes in discrete steps rather than continuously.
+
+### Observation
+
+The resistor-string DAC generates a staircase-like analog output. Every increment in the digital input code moves the output to the next available voltage level. The size of each step depends on the reference voltage range and the DAC resolution.
+
+### AI Discussion
+
+Explain why a resistor-string DAC produces a staircase output waveform and how adjacent digital input codes correspond to adjacent voltage levels.
+
+## Resolution and LSB
+
+### Objective
+
+Understand the voltage resolution of the 10-bit resistor-string DAC.
+
+### Circuit Understanding
+
+- A 10-bit DAC provides \(2^{10}=1024\) output levels.
+- The reference voltage range is 0 V to 3.3 V.
+- Therefore, the output voltage changes in discrete steps.
+
+### Calculation
+
+Number of output levels:
+
+2¹⁰ = 1024
+
+Ideal LSB:
+
+LSB = 3.3 V / 1024 ≈ 3.22 mV
+
+### Observation
+
+The ideal output voltage increases by approximately 3.22 mV for every increment of one digital code. A higher-bit DAC provides smaller voltage steps, resulting in finer analog resolution.
+
+### AI Discussion
+
+Explain the relationship between DAC resolution, the number of output levels, and the Least Significant Bit (LSB) in a 10-bit resistor-string DAC.
+
+
+
+## Monotonicity
+
+### Objective
+
+Understand why the resistor-string DAC produces a monotonically increasing output.
+
+### Circuit Understanding
+
+- The resistor ladder creates an ordered set of voltage levels.
+- The transmission gate network selects one resistor tap for each digital input code.
+- As the input code increases, the selected tap moves to the same or a higher voltage level.
+
+### Observation
+
+An ideal resistor-string DAC is inherently monotonic because the output always follows the ordered resistor taps. Increasing the digital input code does not produce a lower output voltage.
+
+### AI Discussion
+
+Explain why resistor-string DACs are considered inherently monotonic and how the resistor ladder ensures a predictable increase in output voltage.
+
+
+
+## Settling Behaviour
+
+### Objective
+
+Understand how quickly the DAC output reaches its final value after a change in the digital input.
+
+### Circuit Understanding
+
+- A change in the digital input causes the transmission gate network to select a new resistor tap.
+- The output voltage requires a short time to stabilize due to switch resistance and parasitic capacitance.
+- This stabilization period is known as the settling time.
+
+### Observation
+
+Settling time determines how quickly the DAC can produce an accurate output after a code transition. Faster transmission gates and lower parasitic effects improve the settling performance.
+
+### AI Discussion
+
+Explain the factors that influence the settling time of a resistor-string DAC and why it is important for high-speed digital-to-analog conversion.
+
+
+## Integral Non-Linearity (INL) and Differential Non-Linearity (DNL)
+
+### Objective
+
+Understand the non-linearity errors that affect the accuracy of a resistor-string DAC.
+
+### Circuit Understanding
+
+- An ideal resistor-string DAC produces equal voltage steps between adjacent output codes.
+- Manufacturing variations in resistor values and switch characteristics introduce output errors.
+- DNL measures the deviation of each voltage step from the ideal LSB.
+- INL measures the deviation of the overall DAC transfer characteristic from the ideal linear response.
+
+### Observation
+
+In an ideal resistor-string DAC, both INL and DNL are close to zero. Resistor mismatches and non-ideal switching increase these errors, reducing the output accuracy of the DAC.
+
+### AI Discussion
+
+Explain the difference between Integral Non-Linearity (INL) and Differential Non-Linearity (DNL) in a resistor-string DAC and discuss how resistor mismatch affects both parameters.
