@@ -139,3 +139,56 @@ Transmission Gates:
 
 A transmission gate uses both an NMOS and a PMOS so that it can pass both LOW and HIGH logic levels (and analog voltages) with low resistance.
 
+## Debugging Log
+
+### Issue 1: Missing TG2 Symbol in `2bitdac.sch`
+
+**Objective:** Open the 2-bit DAC schematic in Xschem.
+
+**Problem:**  
+After opening `2bitdac.sch`, three transmission gate blocks appeared as `--- MISSING SYMBOL ---`, so the complete DAC circuit could not be viewed.
+
+**Root Cause:**  
+The schematic referenced an absolute symbol path from the original developer's computer:
+
+```text
+/home/harshitha/Desktop/xschem/xschem_library/TG2.sym
+```
+
+Since this path does not exist in GitHub Codespaces, Xschem could not locate the symbol.
+
+**AI Prompt (Low Token):**
+
+```text
+TG2.sym exists but Xschem shows missing symbol. Find the root cause and provide the shortest fix.
+```
+
+**Solution:**
+
+Created a backup:
+
+```bash
+cp 2bitdac.sch 2bitdac.sch.bak
+```
+
+Replaced the absolute path with the local symbol:
+
+```bash
+sed -i 's|/home/harshitha/Desktop/xschem/xschem_library/TG2.sym|TG2.sym|g' 2bitdac.sch
+```
+
+Reopened the schematic:
+
+```bash
+xschem 2bitdac.sch
+```
+
+**Result:**  
+All three TG2 symbols loaded successfully, and the complete 2-bit DAC schematic became visible.
+
+| Before | After |
+|--------|-------|
+| *(Insert screenshot with missing TG2 symbols)* | *(Insert screenshot with corrected schematic)* |
+
+**Observation:**  
+Using local symbol references instead of absolute paths makes the schematic portable across different systems and GitHub Codespaces.
