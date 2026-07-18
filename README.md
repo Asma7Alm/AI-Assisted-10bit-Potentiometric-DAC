@@ -290,3 +290,40 @@ Help me understand the NGSPICE simulation of my 2-bit DAC. Explain the input pul
 ### Conclusion
 
 The SPICE simulation confirms that the transmission gate network correctly selects different reference voltages based on the digital inputs, producing multiple analog output levels.
+
+
+## Building a 3-bit DAC from a 2-bit DAC
+
+<img width="1622" height="926" alt="image" src="https://github.com/user-attachments/assets/b0ab8cd2-df5f-4144-b3f8-3f3f09e35ccc" />
+
+### Commands
+
+```bash
+xschem 3bitdac.sch
+cat my_3bitdac.spice
+```
+
+### Notes
+
+- The 3-bit DAC is built using **two 2-bit DAC blocks**.
+- One **TG2** is added to select the final output.
+- A new control signal **d2** is introduced.
+- A **250 Ω** resistor connects the two 2-bit DAC resistor ladders.
+- Two 2-bit DACs provide **8 voltage levels (2³)**.
+- This approach is called **hierarchical design**, where larger circuits are built by reusing smaller verified blocks.
+
+AI Discussion:
+`How is a 3-bit DAC built using two 2-bit DACs? Why do VLSI designers prefer hierarchical design instead of creating a completely new circuit?`
+
+### Design Insight
+
+Instead of designing a new circuit from scratch, the designer reused the existing 2-bit DAC and added only the required components. This makes the design modular, easier to verify, and scalable to higher-bit DACs.
+
+### Notes
+
+<img width="1470" height="870" alt="image" src="https://github.com/user-attachments/assets/fb8b7f50-7601-47cc-b4bc-7f95339ca902" />
+
+- The waveform verifies the operation of the 3-bit DAC.
+- `d0`, `d1`, and `d2` change at different time periods.
+- `d2` performs the final selection between the two 2-bit DAC outputs.
+- The output changes according to the digital input combinations.
