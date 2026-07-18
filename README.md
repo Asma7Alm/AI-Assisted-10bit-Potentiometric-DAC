@@ -192,3 +192,46 @@ All three TG2 symbols loaded successfully, and the complete 2-bit DAC schematic 
 
 **Observation:**  
 Using local symbol references instead of absolute paths makes the schematic portable across different systems and GitHub Codespaces.
+
+
+2-bit DAC Architecture
+
+Objective
+
+Understand the hierarchical architecture of the 2-bit potentiometric DAC and identify the function of each transmission gate.
+
+Work Completed
+
+Fixed missing TG2.sym issue in Xschem.
+Opened and analyzed 2bitdac.sch.
+Identified the resistor string and four voltage tap nodes.
+Traced all three transmission gate connections.
+Understood the hierarchical switch network used in the DAC.
+Circuit Blocks
+Block	Function
+Resistor String	Generates selectable reference voltage taps
+Switch	Selects between x1_inp1 and x2_inp2 using d0
+Switch1	Selects between switch1_inp1 and x2_inp2 using d0
+Switch2	Selects between x1_out and x2_out using d1 to generate the final output
+Signal Mapping
+Switch
+Signal	Connection
+inp1	x1_inp1
+din	d0
+inp2	x2_inp2
+vout	x1_out
+Switch1
+Signal	Connection
+inp1	switch1_inp1
+din	d0
+inp2	x2_inp2
+vout	x2_out
+Switch2
+Signal	Connection
+inp1	x1_out
+din	d1
+inp2	x2_out
+vout	out_v
+Working Principle
+
+The first stage consists of two transmission gates controlled by d0. These switches select voltage taps from the resistor string. Their outputs are connected to a third transmission gate controlled by d1, which selects the final analog output (out_v). This creates a hierarchical switching network that can be extended to higher-bit DACs.
