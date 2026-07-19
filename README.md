@@ -17,6 +17,8 @@ The project was completed following a structured engineering workflow:
 
 
 ## Repository Structure
+
+```text
 Prelayout/
 │
 ├── TG2.sch
@@ -32,7 +34,7 @@ Prelayout/
 ├── Pictures/
 │
 └── README.md
-
+```
 
 
 ## Key Features
