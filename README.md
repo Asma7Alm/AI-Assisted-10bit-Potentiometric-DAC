@@ -221,9 +221,21 @@ Using local symbol references instead of absolute paths makes the schematic port
 Explain the architecture of the 2-bit potentiometric DAC. Help me trace all transmission gates and explain how d0 and d1 select the final output voltage.
 ```
 
-### Observation
+### Observation-1
 
 The resistor string creates multiple voltage levels, while the transmission gate network selects one voltage based on the digital inputs (`d0`, `d1`) and sends it to the output.
+
+
+### Observation-2
+
+The resistor ladder consists of three 500 Ω resistors followed by a 250 Ω termination resistor. Unlike a simple resistor divider, the ladder does not end with another 500 Ω resistor. The lower termination resistor (R/2) is intentionally used to properly terminate the resistor string and maintain the intended voltage distribution across the selectable taps.
+
+During simulation, the lower reference node (`vref5`) was observed to be 0.1 V instead of 0 V:
+
+- VREFH = 3.3 V
+- VREFL = 0.1 V
+
+This confirmed that the DAC implementation uses a small lower reference voltage together with an R/2 termination resistor to achieve the desired resistor-string behaviour.
 
 
 ## Resistor String Analysis
