@@ -1,6 +1,33 @@
 # AI-Assisted-10bit-Potentiometric-DAC
 AI-assisted study and circuit-level implementation of a 10-bit Potentiometric Digital-to-Analog Converter (DAC) using SKY130 PDK and open-source EDA tools.
 
+
+## AI Assistance
+
+This project was developed using AI-assisted engineering workflows.
+
+| Task | AI Assistance |
+|------|---------------|
+| DAC architecture understanding | ChatGPT |
+| Hierarchical DAC explanation | ChatGPT |
+| README documentation | ChatGPT |
+| Simulation interpretation | ChatGPT |
+| Engineering review and refinement | ChatGPT |
+
+All simulations, circuit implementation, verification, and repository modifications were performed by the author.
+
+
+## Verification Summary
+
+| Module | Verification Method | Status |
+|---------|--------------------|--------|
+| 2-bit DAC | NGSpice transient simulation | ✅ Passed |
+| 3-bit DAC | Hierarchical schematic verification | ✅ Passed |
+| 10-bit DAC | Hierarchical design review | ✅ Completed |
+| Monotonic behaviour | Output waveform analysis | ✅ Verified |
+| R/2 termination | Step-size analysis | ✅ Verified |
+
+
 ## Installation of EDA tools used to implement Potentiometric DAC
 
 ## Development Environment
