@@ -110,13 +110,13 @@ The TG2 cell contains two CMOS inverter stages:
 **The signal flow is:**
 din
    │
-   ▼
+   \/
 M5 + M1  →  dinb
    │
-   ▼
+   \/
 M8 + M2  →  buffered/complementary control
    │
-   ▼
+   \/
 Transmission Gate (M3, M4, M6, M7)
 
 **Operation of TG (M6–M4)**
@@ -302,6 +302,34 @@ Help me understand the NGSPICE simulation of my 2-bit DAC. Explain the input pul
 ### Conclusion
 
 The SPICE simulation confirms that the transmission gate network correctly selects different reference voltages based on the digital inputs, producing multiple analog output levels.
+
+
+## Performance Experiment: 2-bit DAC Output Verification
+
+### Objective
+
+To verify that different digital input combinations select different resistor taps and produce distinct analog output voltage levels.
+
+### Method
+
+The 2-bit DAC was simulated using NGSpice with pulse inputs applied to D0 and D1. The output waveform (x1_out_v) was observed while the digital inputs changed through all four possible combinations.
+
+### Observed Results
+
+| Digital Code | Approximate Output Voltage |
+|--------------|---------------------------|
+| 00 | 0.10 V |
+| 01 | 0.56 V |
+| 10 | 1.47 V |
+| 11 | 2.39 V |
+
+### Observation
+
+The output voltage changes in discrete steps as the digital input changes. Each binary code selects a different tap of the resistor string through the transmission gate network.
+
+The measured output confirms the correct operation of the resistor-string DAC and demonstrates monotonic behaviour, where increasing digital codes correspond to increasing output voltages.
+
+Although this experiment is based on the 2-bit DAC, the same operating principle extends recursively to the higher-bit hierarchical DAC architecture.
 
 
 ## Building a 3-bit DAC from a 2-bit DAC
