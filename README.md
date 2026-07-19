@@ -2,19 +2,60 @@
 AI-assisted study and circuit-level implementation of a 10-bit Potentiometric Digital-to-Analog Converter (DAC) using SKY130 PDK and open-source EDA tools.
 
 
-## AI Assistance
+## Project Workflow
 
-This project was developed using AI-assisted engineering workflows.
+The project was completed following a structured engineering workflow:
 
-| Task | AI Assistance |
-|------|---------------|
-| DAC architecture understanding | ChatGPT |
-| Hierarchical DAC explanation | ChatGPT |
-| README documentation | ChatGPT |
-| Simulation interpretation | ChatGPT |
-| Engineering review and refinement | ChatGPT |
+1. Study the reference repository and resistor-string DAC architecture.
+2. Configure the SKY130 open-source EDA environment.
+3. Analyze the TG2 transmission gate cell.
+4. Verify the 2-bit DAC through schematic inspection and SPICE simulation.
+5. Understand hierarchical scaling from 2-bit to 3-bit and 10-bit DACs.
+6. Investigate key DAC performance parameters such as resolution, LSB, monotonicity, settling behaviour, INL, and DNL.
+7. Document the complete design and verification process.
 
-All simulations, circuit implementation, verification, and repository modifications were performed by the author.
+
+
+## Repository Structure
+Prelayout/
+│
+├── TG2.sch
+├── 2bitdac.sch
+├── 3bitdac.sch
+├── ...
+├── 10bitdac.sch
+│
+├── my_2bitdac.spice
+├── my_3bitdac.spice
+├── my_10bitdac.spice
+│
+├── Pictures/
+│
+└── README.md
+
+
+
+## Key Features
+
+- Hierarchical resistor-string DAC architecture
+- Modular design from 2-bit to 10-bit
+- SKY130 Open PDK implementation
+- Xschem schematic design
+- NGSpice circuit verification
+- AI-assisted engineering workflow
+- Open-source EDA toolchain
+
+
+## Technologies Used
+
+| Tool | Purpose |
+|------|---------|
+| SKY130 PDK | Semiconductor process library |
+| Xschem | Schematic capture |
+| NGSpice | Circuit simulation |
+| GitHub Codespaces | Cloud development |
+| Git | Version control |
+
 
 
 ## Verification Summary
@@ -584,3 +625,27 @@ In an ideal resistor-string DAC, both INL and DNL are close to zero. Resistor mi
 ### AI Discussion
 
 Explain the difference between Integral Non-Linearity (INL) and Differential Non-Linearity (DNL) in a resistor-string DAC and discuss how resistor mismatch affects both parameters.
+
+
+
+## AI-Assisted Engineering Workflow
+
+Artificial intelligence was used as an engineering assistant throughout the project to:
+
+- Understand resistor-string DAC architecture
+- Analyze hierarchical circuit design
+- Interpret SPICE simulation results
+- Debug Xschem and NGSpice issues
+- Improve project documentation
+
+AI served as a technical assistant. All circuit exploration, verification, implementation, debugging, and repository organization were performed by the author.
+
+
+
+## References
+
+1. SKY130 Open PDK Documentation
+2. Xschem Documentation
+3. NGSpice User Manual
+4. Caravel User Project Documentation
+5. Reference Repository: vsdip/avsddac_3v3_sky130_v1
