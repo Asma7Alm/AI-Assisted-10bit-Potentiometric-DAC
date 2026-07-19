@@ -18,23 +18,18 @@ The project was completed following a structured engineering workflow:
 
 ## Repository Structure
 
-```text
-Prelayout/
-│
-├── TG2.sch
-├── 2bitdac.sch
-├── 3bitdac.sch
-├── ...
-├── 10bitdac.sch
-│
-├── my_2bitdac.spice
-├── my_3bitdac.spice
-├── my_10bitdac.spice
-│
-├── Pictures/
-│
-└── README.md
-```
+| Directory / File | Description |
+|------------------|-------------|
+| `Prelayout/` | Main project directory containing schematics and SPICE netlists |
+| `TG2.sch` | Transmission gate schematic |
+| `2bitdac.sch` | 2-bit DAC schematic |
+| `3bitdac.sch` | 3-bit DAC schematic |
+| `10bitdac.sch` | 10-bit hierarchical DAC schematic |
+| `my_2bitdac.spice` | NGSpice netlist for 2-bit DAC |
+| `my_3bitdac.spice` | NGSpice netlist for 3-bit DAC |
+| `my_10bitdac.spice` | NGSpice netlist for 10-bit DAC |
+| `Pictures/` | Screenshots of schematics and simulation results |
+| `README.md` | Project documentation |
 
 
 ## Key Features
