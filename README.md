@@ -648,3 +648,37 @@ AI served as a technical assistant. All circuit exploration, verification, imple
 3. NGSpice User Manual
 4. Caravel User Project Documentation
 5. Reference Repository: vsdip/avsddac_3v3_sky130_v1
+
+# Week 5 – Task 4: Independent 3-bit and 4-bit DAC Layout Design
+
+## 1. Task Overview
+
+## 2. Reference Architecture Study
+
+## 3. 3-bit DAC Pre-layout Verification
+
+## 4. 4-bit DAC Pre-layout Verification
+
+## 5. Fresh 3-bit DAC Layout
+
+## 6. Fresh 4-bit DAC Layout
+
+## 7. Design Rule Check (DRC)
+
+## 8. Layout Versus Schematic (LVS)
+
+## 9. Parasitic Extraction
+
+## 10. Post-layout SPICE Simulation
+
+## 11. INL, DNL and Monotonicity Analysis
+
+## 12. Pre-layout vs Post-layout Comparison
+
+## 13. Layout Area
+
+## 14. AI-assisted Layout Workflow
+
+## 15. Errors, Debugging and Fixes
+
+## 16. Final Verification Summary
